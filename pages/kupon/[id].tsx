@@ -3,11 +3,10 @@ import {ReactChild, ReactFragment, ReactPortal, useState} from "react";
 import {FortunaService} from "../../services/FortunaService";
 import {useRouter} from "next/router";
 
+
 // @ts-ignore
 const index = ({data}) => {
 
-
-    const [pen, setPen] = useState("")
     const [url, setUrl] = useState("")
     console.log(data)
 
@@ -18,11 +17,6 @@ const index = ({data}) => {
         return
     }
     return <>
-        test<br/>
-        <button onClick={() => setPen(prevState => prevState + "=")}>powiększ</button>
-        <br/>
-        3={pen}D
-        <br/>
         <input type={"text"} style={{width:'100vw',height:'30px',fontSize:"20px"}}  onChange={(e) => setUrl(prevState => e.target.value)}/>
         <button onClick={() => router.push(`/kupon/${url.slice(url.indexOf("=") + 1)}`)}>Sprawdź</button>
         {data.legs.map((leg: { result: string; fixtureName: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; marketName: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; oddsPlaced: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; marketOutcomeResult: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; })=>
