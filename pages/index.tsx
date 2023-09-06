@@ -2,21 +2,24 @@ import {UserService} from "../services/UserService";
 import {useState} from "react";
 import {FortunaService} from "../services/FortunaService";
 import {useRouter} from "next/router";
-
+import 'tailwindcss/tailwind.css'
+import {Find} from "../components/find";
 
 const index=()=>{
 
 
-    const [url,setUrl]=useState("")
-
-
-        const router=useRouter();
 
     return <>
 
         <br/>
-        <input type={"text"} style={{width:'100vw',height:'30px',fontSize:"20px"}} onChange={(e)=>setUrl(prevState => e.target.value)}/>
-        <button onClick={()=>router.push(`/kupon/${url.slice(url.indexOf("=")+1)}`)}>Sprawdź</button>
+        <div className={"flex-row"}>
+
+                <Find/>
+
+            <div className={"w-1/2"}>
+
+            </div>
+        </div>
     </>
 }
 
